@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Exercícios JavaScript</title>
+    <script>
+      function init() {
+        let form = document.getElementById("my-form");
+
+        form.addEventListener(
+          "submit",
+          (e) => {
+            e.preventDefault();
+
+            let firstNumber = document.getElementById("first_number");
+            let secondNumber = document.getElementById("second_number");
+
+            if (firstNumber.value == "" || firstNumber.value == "") {
+              console.error("invalid values");
+            } else {
+              alert(Number(firstNumber.value) + Number(secondNumber.value));
+            }
+          },
+          true
+        );
+      }
+
+      window.onload = init;
+
+      function changeById() {
+        document.getElementById("change-by-id").style.color = "red";
+      }
+
+      function changeByName() {
+        document.getElementsByName("change-by-name")[0].style.color = "red";
+      }
+
+      function changeByClass() {
+        document.getElementsByClassName("change-by-class")[0].style.color =
+          "red";
+      }
+    </script>
+  </head>
+  <body class="container">
+    <h1 class="title">Exercícios JavaScript</h1>
+    <div class="container">
+      <button onclick="alert('Ola mundo')">Exibir Ola mundo</button>
+      <div class="container input-container">
+        <form id="my-form">
+          <input id="first_number" name="first_number" required type="number" />
+          <input
+            id="second_number"
+            name="second_number"
+            required
+            type="number"
+          />
+          <button type="submit">somar</button>
+        </form>
+      </div>
+      <div>
+        <p id="change-by-id" class="paragraph">Alterar elemento por ID</p>
+        <button onclick="changeById()">
+          clique para alterar propriedade por ID
+        </button>
+      </div>
+      <div>
+        <p name="change-by-name" class="paragraph">Alterar elemento por NAME</p>
+        <button onclick="changeByName()">
+          clique para alterar propriedade por NAME
+        </button>
+      </div>
+      <div>
+        <p class="change-by-class paragraph">Alterar elemento por CLASS</p>
+        <button onclick="changeByClass()">
+          clique para alterar propriedade por CLASS
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
